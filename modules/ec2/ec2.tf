@@ -17,7 +17,7 @@ resource "aws_instance" "ec2_instance" {
   subnet_id              = var.subnet_id
   vpc_security_group_ids = [aws_security_group.aws-ec2-sg.id]
   key_name               = var.key_pair_name
-  user_data              = file("../../modules/server/bootstrap.sh")
+  user_data              = file("../../modules/ec2/bootstrap.sh")
 
   # root disk
   root_block_device {

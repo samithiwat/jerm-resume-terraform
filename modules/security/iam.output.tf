@@ -1,8 +1,14 @@
-# S3 User
+# User id
 output "s3_user_id" {
   value = aws_iam_user.s3-user.id
 }
 
+# User ARN
+output "s3_user_arn" {
+  value = aws_iam_user.s3-user.arn
+}
+
+# Access key
 output "s3_access_key" {
   value = aws_iam_access_key.s3-user.id
 }
