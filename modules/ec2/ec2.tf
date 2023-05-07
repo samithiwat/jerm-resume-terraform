@@ -28,7 +28,7 @@ resource "aws_instance" "ec2_instance" {
   }
 
   tags = {
-    Name        = "${lower(var.app_name)}-${var.app_environment}-server"
+    Name        = "${lower(var.app_name)}-${var.app_environment}-${var.ec2_instance_name}"
     Environment = var.app_environment
   }
 }

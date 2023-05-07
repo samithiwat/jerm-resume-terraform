@@ -1,6 +1,6 @@
 # Define the security group for the Linux server
 resource "aws_security_group" "aws-ec2-sg" {
-  name        = "${var.app_name}-ec2-sg"
+  name        = "${lower(var.app_name)}-${var.app_environment}-${var.ec2_instance_name}-sg"
   description = "${var.app_name} EC2 instance security group"
   vpc_id      = var.vpc_id
   ingress {
@@ -32,7 +32,7 @@ resource "aws_security_group" "aws-ec2-sg" {
   }
 
   tags = {
-    Name        = "${lower(var.app_name)}-${var.app_environment}-server-sg"
+    Name        = "${lower(var.app_name)}-${var.app_environment}-${var.ec2_instance_name}-sg"
     Environment = var.app_environment
   }
 }

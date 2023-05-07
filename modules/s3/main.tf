@@ -11,6 +11,14 @@ resource "aws_s3_bucket" "s3-bucket" {
 resource "aws_s3_bucket_acl" "s3-bucket" {
   bucket = aws_s3_bucket.s3-bucket.id
   acl    = "private"
+  depends_on = [aws_s3_bucket_ownership_controls.s3-bucket-acl-ownership]
+}
+
+resource "aws_s3_bucket_ownership_controls" "s3-bucket-acl-ownership" {
+  bucket = aws_s3_bucket.s3-bucket.id
+  rule {
+    object_ownership = "ObjectWriter"
+  }
 }
 
 resource "aws_s3_bucket_public_access_block" "s3-bucket" {

@@ -21,3 +21,9 @@ variable "ec2_iam_instance_profile_name" {
   type = string
   description = "EC2 instance profile"
 }
+
+# EC2 instance name
+variable "ec2_instance_name" {
+  type = string
+  description = "instance name"
+}
